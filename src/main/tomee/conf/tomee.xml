@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+    <Deployments dir="apps" />
+    
+    <Resource id="MyResourceAdapter" type="ActiveMQResourceAdapter">
+        BrokerXmlConfig = broker:(tcp://127.0.0.1:61616)
+        ServerUrl       = tcp://127.0.0.1:61616
+    </Resource>
+
+    <Resource id="MyConnectionFactory" type="javax.jms.ConnectionFactory">
+        ResourceAdapter = MyResourceAdapter
+    </Resource>
+
+    <Container id="MyMdbContainer" type="MESSAGE">
+        ResourceAdapter = MyResourceAdapter
+    </Container>
+
+    <Resource id="TomEETopic" type="javax.jms.Topic"/>
+
+</tomee>
